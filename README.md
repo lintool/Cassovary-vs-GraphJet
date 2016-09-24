@@ -11,7 +11,7 @@ $ ./sbt "project cassovary-benchmarks" "run-main com.twitter.cassovary.Performan
 $ ./sbt "project cassovary-benchmarks" "run-main com.twitter.cassovary.PerformanceBenchmark -local=wiki -globalpr"
 ```
 
-Running Cassovary on the LiveJournal graph - download the data and put it in the right directory:
+Running Cassovary on the [LiveJournal graph from SNAP](https://snap.stanford.edu/data/soc-LiveJournal1.html) - download the data and put it in the right directory:
 
 
 ```
@@ -30,3 +30,6 @@ $ ./sbt "project cassovary-benchmarks" \
 Note that the performance benchmark by default expects the edge list
 to be space delimited. The LiveJournal data is tab separated, which is
 why we use the `-separator=9` option (tab is decimal 9).
+
+See also McSherry et al.'s ["Scalability! But at what COST?"](https://www.usenix.org/conference/hotos15/workshop-program/presentation/mcsherry) paper and [associated code on GitHub](https://github.com/frankmcsherry/COST).
+
