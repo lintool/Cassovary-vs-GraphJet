@@ -53,8 +53,9 @@ cd GraphJet_pagerank
 3. Compile and run
 ```
  mvn package install -DskipTests
- mvn exec:java -pl graphjet-demo -Dexec.mainClass=com.twitter.graphjet.demo.PageRankDemo -Dexec.args="'path-to-file-containg-graph'"
+ mvn exec:java -pl graphjet-demo -Dexec.mainClass=com.twitter.graphjet.demo.PageRankDemo -Dexec.args="-inputFile='path-to-file-containg-graph'"
 ```
+Also, other arguments can be set in -Dexec.args. (e.g "-inputFile='path-to-file-containg-graph' -maxEdgesPerSegment=10000")
 
 See also McSherry et al.'s ["Scalability! But at what COST?"](https://www.usenix.org/conference/hotos15/workshop-program/presentation/mcsherry) paper and [associated code on GitHub](https://github.com/frankmcsherry/COST).
 
