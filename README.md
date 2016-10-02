@@ -52,7 +52,7 @@ cd GraphJet_pagerank
 ```
 3. Compile and run
 ```
- mvn package install
+ mvn package install -DskipTests
  mvn exec:java -pl graphjet-demo -Dexec.mainClass=com.twitter.graphjet.demo.PageRankDemo -Dexec.args="'path-to-file-containg-graph'"
 ```
 
