@@ -13,6 +13,8 @@ $ ./sbt "project cassovary-benchmarks" "run-main com.twitter.cassovary.Performan
 
 Running Cassovary on the [LiveJournal graph from SNAP](https://snap.stanford.edu/data/soc-LiveJournal1.html) - download the data and put it in the right directory:
 
+To increate the memory,
+Modify "sbt" file to add java argument -Xmx1000M
 
 ```
 $ wget http://snap.stanford.edu/data/soc-LiveJournal1.txt.gz
@@ -30,6 +32,30 @@ $ ./sbt "project cassovary-benchmarks" \
 Note that the performance benchmark by default expects the edge list
 to be space delimited. The LiveJournal data is tab separated, which is
 why we use the `-separator=9` option (tab is decimal 9).
+
+
+Running PageRank on GraphJet:
+1. Install and cd into GraphJet
+```
+git clone -b dev https://github.com/yb1/GraphJet.git GraphJet_pagerank
+cd GraphJet_pagerank
+```
+2. (Optional) increase the memory if the graph is large. (Add configuration in plugin in pom.xml)
+```
+<plugin>
+  ...
+  <configuration>
+      <argLine>-Xmx100000m</argLine>
+  </configuration>
+  ...
+</plugin>
+```
+3. Compile and run
+```
+ mvn package install -DskipTests
+ mvn exec:java -pl graphjet-demo -Dexec.mainClass=com.twitter.graphjet.demo.PageRankDemo -Dexec.args="-inputFile='path-to-file-containg-graph'"
+```
+Also, other arguments can be set in -Dexec.args. (e.g "-inputFile='path-to-file-containg-graph' -maxEdgesPerSegment=10000")
 
 See also McSherry et al.'s ["Scalability! But at what COST?"](https://www.usenix.org/conference/hotos15/workshop-program/presentation/mcsherry) paper and [associated code on GitHub](https://github.com/frankmcsherry/COST).
 
