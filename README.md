@@ -17,14 +17,14 @@ Running Cassovary on the [LiveJournal graph from SNAP](https://snap.stanford.edu
 ```
 $ wget http://snap.stanford.edu/data/soc-LiveJournal1.txt.gz
 $ gunzip soc-LiveJournal1.txt.gz
-$ cp soc-LiveJournal1.txt.gz cassovary-benchmarks/src/main/resources/graphs/
+$ cp soc-LiveJournal1.txt cassovary-benchmarks/src/main/resources/graphs/
 ```
 
 Now you can you run the performance benchmark in Cassovary:
 
 ```
 $ ./sbt "project cassovary-benchmarks" \
-  "run-main com.twitter.cassovary.PerformanceBenchmark -local=soc-LiveJournal1 -separator=9 -globalpr"
+   "run-main com.twitter.cassovary.PerformanceBenchmark -local=soc-LiveJournal1 -separator=9 -globalpr"
 ```
 
 Note that the performance benchmark by default expects the edge list
