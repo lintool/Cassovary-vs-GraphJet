@@ -1,5 +1,7 @@
 # Cassovary vs. GraphJet
 
+## Cassovary
+
 Cassovary has a class [`com.twitter.cassovary.PerformanceBenchmark`](https://github.com/twitter/cassovary/blob/master/cassovary-benchmarks/src/main/scala/com/twitter/cassovary/PerformanceBenchmark.scala) for running performance benchmarks.
 
 The class reads graph data from `cassovary-benchmarks/src/main/resources/graphs/`.
@@ -33,6 +35,7 @@ Note that the performance benchmark by default expects the edge list
 to be space delimited. The LiveJournal data is tab separated, which is
 why we use the `-separator=9` option (tab is decimal 9).
 
+## GraphJet
 
 Running PageRank on GraphJet:
 1. Install and cd into GraphJet
