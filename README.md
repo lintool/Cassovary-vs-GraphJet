@@ -62,7 +62,7 @@ $ git clone git@github.com:twitter/GraphJet.git
 Build GraphJet:
 
 ```
-mvn package install -DskipTests
+$ mvn package install -DskipTests
 ```
 
 The `-DskipTests` option skips tests for the impatient.
@@ -70,8 +70,8 @@ The `-DskipTests` option skips tests for the impatient.
 GraphJet contains an adapter to read Cassovary graphs. Here's how we would run GraphJet's PageRank implementation on an underlying Cassovary graph:
 
 ```
-mvn exec:java -pl graphjet-demo -Dexec.mainClass=com.twitter.graphjet.demo.PageRankCassovaryDemo \
-  -Dexec.args="-inputDir='.' -inputFilePrefix='soc-LiveJournal1.txt.gz' -dumpTopK=10 -threads=1"
+$ mvn exec:java -pl graphjet-demo -Dexec.mainClass=com.twitter.graphjet.demo.PageRankCassovaryDemo \
+    -Dexec.args="-inputDir='.' -inputFilePrefix='soc-LiveJournal1.txt.gz' -dumpTopK=10 -threads=1"
 ```
 
 Use the `-threads` option to set the number of threads.
@@ -87,8 +87,8 @@ $ nohup gunzip -c soc-LiveJournal1.txt.gz | \
 Now we can run PageRank on a GraphJet graph, after all the edges are read in from the file incrementally (simulating a real-time streaming graph):
 
 ```
-mvn exec:java -pl graphjet-demo -Dexec.mainClass=com.twitter.graphjet.demo.PageRankGraphJetDemo \
-  -Dexec.args="-inputFile='soc-LiveJournal1.shuffle1.txt.gz' -dumpTopK=10 -threads=1"
+$ mvn exec:java -pl graphjet-demo -Dexec.mainClass=com.twitter.graphjet.demo.PageRankGraphJetDemo \
+    -Dexec.args="-inputFile='soc-LiveJournal1.shuffle1.txt.gz' -dumpTopK=10 -threads=1"
 ```
 
 Use the `-threads` option to set the number of threads.
